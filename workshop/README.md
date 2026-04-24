@@ -1,9 +1,10 @@
-# 📜 The Codex
+# 🧪 Workshop
 
-What I Learned About Flutter & React Native
+> Technical how-to guides, environment setups, and solutions to the errors I encounter.
 
-## The List
-* **[Flutter & React Native Insights](./framework.md)** - Beyond the UI: Understanding Mobile Framework Choices
-* *(More coming soon...)*
+## Guides & Solutions
+* **[Mobile Framework Insights](./framework.md)** - Choosing between Flutter and React Native for system-level control.
+* *(New guides coming soon...)*
 
-[🔙 Back to Home](../README.md)
+---
+[🔙 Back to The Archives](../README.md)

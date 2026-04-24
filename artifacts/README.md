@@ -1,9 +1,10 @@
-# 🔮 Magic Apps & Curation
+# 🔮 Artifacts
 
-Here is the collection of tools and workflows I have documented.
+> A collection of hidden digital gems, underrated tools, and secret ecosystem products.
 
-## The List
-* **[The Hidden Google Ecosystem](./google_ecosystem.md)** - A list of Google's silent releases and secret tools.
-* *(More coming soon...)*
+## The Collection
+* **[The Hidden Google Ecosystem](./google_ecosystem.md)** - Exploring Google's silent releases and secret tools.
+* *(More artifacts coming soon...)*
 
-[🔙 Back to Home](../README.md)
+---
+[🔙 Back to The Archives](../README.md)
