@@ -1,3 +1,15 @@
+# Site Settings
 theme: jekyll-theme-slate
 title: THE ARCHIVES
-description: A repository of untold stories and technical experiments. I document my journey here—not just for recognition, but to create a permanent memory of the things I build and experience.
+description: >-
+  Documenting the process of development, hardware exploration, and technical troubleshooting. A permanent record of the logic behind the magic.
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  style: :compressed
+
+# Navigation & Identity
+url: "https://prasheelvarma.dev" # Replace when domain changes 
+baseurl: ""

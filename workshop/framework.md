@@ -224,7 +224,7 @@ React Native focuses mainly on mobile.
 ❌ React Native is slow
 ✔ Reality: performance is good for most apps
 
-❌ Flutter can do things RN cannot
+❌ Flutter can do things React Native cannot
 ✔ Reality: both can access native APIs
 
 ❌ Expo is required

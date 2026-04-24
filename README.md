@@ -1,28 +1,24 @@
-# ⚡ Prasheel's Archives
+# 📂 The Chapters
 
-> "Magic fades when logic is revealed. Here is the logic behind the magic."
+### 🛠️ [Forge](./forge)
+The evolution of my software projects. This section covers the experience of building, the design logic, and the "behind the scenes" of how my applications grow from ideas into tools.
 
-Welcome to my personal digital garden. This repository serves as a documentation of my technical journey, the tools I curate, and the projects I build. 
+### 📖 [Chronicles](./chronicles)
+A detailed log of hardware exploration. Here I document the process of dismantling electronics to understand their internal logic and the step-by-step struggle of troubleshooting and repairing broken gear.
 
-## 📂 Navigation
+### 🔮 [Artifacts](./artifacts)
+A collection of hidden gems and digital secrets. This covers underrated apps, utilities and tools that provide unique capabilities or improve technical workflows.
 
-### 🔮 [Artifacts](./magic-apps)
-*A curated collection of underrated tools, apps, artifacts, and workflows that feel like magic and drive my productivity.*
-* Expect: Android hacks, PC control tools, productivity workflows.
+### 🖼️ [Gallery](./gallery)
+The visual record. A space for technical snapshots, clips of project milestones, and labeled photos of hardware components. It provides a quick visual overview of the journey.
 
-### 🛠️ [Projects & Builds](./projects)
-*Documentation of the things I have built or am currently building.*
-* Expect: Technical breakdowns, "How I did it" guides, and showcases.
+### 🧪 [Workshop](./workshop)
+The technical "How-To" library. Practical implementation for setting up development environments, optimizing AI workflows, and documenting the specific solutions to bugs and errors I encounter.
 
-### 📜 [The Codex](./codex)
-*A knowledge base for technical concepts, patterns, and solutions.*
-* Expect: Detailed engineering guides and quick-reference learning notes.
-
----
-
-
+### ☁️ [Infra](./infra)
+The invisible architecture. This section documents the unseen work required to keep the Digital Me running—from solving complex domain and hosting errors to optimizing SEO and search presence. It is a record of the technical troubleshooting and systems management that happens behind the curtain.
 
 ---
 
 ### 🌐 Connect
-* [Dev.to Profile](https://dev.to/prasheel_varma)
+* [Dev.to Profile](https://dev.to/prasheelvarma)
