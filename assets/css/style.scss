@@ -1,41 +1,37 @@
 ---
 ---
-@import "{{ site.theme }}";
+@import "jekyll-theme-slate";
 
-// Widen the container for a modern, professional look
-.wrapper {
-  max-width: 1050px; // Increases width from the default 800px
-  margin: 0 auto;
-  padding: 0 40px;
+// Widen the layout for a modern look
+.inner {
+  max-width: 1050px;
 }
 
-// Adjusting for mobile so it still looks perfect
-@media screen and (max-width: 640px) {
-  .wrapper {
-    padding: 0 20px;
-  }
-}
-
-// Prepare for Dark Mode (we will trigger this with JS later)
+// Dark Mode Color Overrides
 body.dark-mode {
   background-color: #0d1117;
   color: #c9d1d9;
-  
-  header {
-    background: linear-gradient(135deg, #161b22, #0d1117);
-    border-bottom: 1px solid #30363d;
-  }
+}
 
-  section {
-    background: #0d1117;
-  }
+body.dark-mode #header_wrap {
+  background: linear-gradient(135deg, #161b22, #0d1117);
+  border-bottom: 1px solid #30363d;
+}
 
-  code {
-    background-color: #161b22;
-    color: #ff79c6;
-  }
-  
-  a {
-    color: #58a6ff;
-  }
+body.dark-mode #main_content_wrap {
+  background: #0d1117;
+}
+
+body.dark-mode #footer_wrap {
+  background: #0d1117;
+  border-top: 1px solid #30363d;
+}
+
+body.dark-mode a {
+  color: #58a6ff;
+}
+
+body.dark-mode code {
+  background-color: #161b22;
+  color: #ff79c6;
 }

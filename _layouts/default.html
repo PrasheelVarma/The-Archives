@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta charset="UTF-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css' | relative_url }}">
     {% seo %}
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ "/" | relative_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="{{ site.github.repository_url }}">View on GitHub</a>
+          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
+          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+          
+          <button id="dark-mode-toggle" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
+            🌓 Toggle Dark Mode
+          </button>
+        </header>
+    </div>
 
-        <button id="dark-mode-toggle" style="background: none; border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
-          🌓 Toggle Mode
-        </button>
-
-        {% if site.github.is_project_page %}
-          <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
-        {% endif %}
-      </header>
-      <section>
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         {{ content }}
       </section>
+    </div>
+
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        {% if site.github.is_project_page %}
+        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+      </footer>
     </div>
 
     <script>
@@ -36,10 +44,7 @@
 
       btn.addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
-        let theme = "light";
-        if (document.body.classList.contains("dark-mode")) {
-          theme = "dark";
-        }
+        let theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
         localStorage.setItem("theme", theme);
       });
     </script>
