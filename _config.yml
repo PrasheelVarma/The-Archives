@@ -11,5 +11,5 @@ sass:
   style: :compressed
 
 # Navigation & Identity
-url: "https://prasheelvarma.dev" # Replace when domain changes 
+url: "" 
 baseurl: ""
