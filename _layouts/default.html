@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="en-US">
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,9 @@
   <body>
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/PrasheelVarma/The-Archives">View on GitHub</a>
-          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+          <a id="forkme_banner" href="https://github.com/PrasheelVarma">View GitHub Profile</a>
+          <h1 id="project_title">{{ site.title }}</h1>
+          <h2 id="project_tagline">{{ site.description }}</h2>
           
           <button id="dark-mode-toggle" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
             🌓 Toggle Dark Mode
@@ -28,24 +28,17 @@
 
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        {% if site.github.is_project_page %}
-        <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
+        <p class="copyright">THE ARCHIVES maintained by <strong>Prasheel Varma Datla</strong>.</p>
+        <p>A sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
       </footer>
     </div>
 
     <script>
       const btn = document.getElementById("dark-mode-toggle");
-      const currentTheme = localStorage.getItem("theme");
-
-      if (currentTheme === "dark") {
-        document.body.classList.add("dark-mode");
-      }
-
+      if (localStorage.getItem("theme") === "dark") { document.body.classList.add("dark-mode"); }
       btn.addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
-        let theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
-        localStorage.setItem("theme", theme);
+        localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
       });
     </script>
   </body>
