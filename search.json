@@ -1,0 +1,17 @@
+---
+layout: none
+---
+[
+  {% assign first = true %}
+  {% for page in site.pages %}
+    {% if page.title %}
+      {% if first == false %},{% endif %}
+      {
+        "title"    : "{{ page.title | escape }}",
+        "url"      : "{{ page.url }}",
+        "category" : "{{ page.url | split: '/' | slice: 1 }}"
+      }
+      {% assign first = false %}
+    {% endif %}
+  {% endfor %}
+]

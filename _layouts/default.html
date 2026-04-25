@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css' | relative_url }}">
     {% seo %}
+    <style>
+      /* Search Results Styling */
+      #results-container {
+        list-style: none; padding: 0; margin-top: 5px; 
+        background: #161b22; border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5); position: absolute; width: 100%; max-width: 400px; z-index: 1000;
+      }
+      #results-container li { padding: 10px; border-bottom: 1px solid #30363d; }
+      #results-container li a { color: #58a6ff; text-decoration: none; font-weight: bold; }
+    </style>
   </head>
   <body>
     <div id="header_wrap" class="outer">
@@ -14,7 +24,12 @@
           <h1 id="project_title">{{ site.title }}</h1>
           <h2 id="project_tagline">{{ site.description }}</h2>
           
-          <button id="dark-mode-toggle" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 10px;">
+          <div id="search-container" style="margin-top: 15px; position: relative;">
+            <input type="text" id="search-input" placeholder="🔍 Search the archives..." style="width: 100%; max-width: 400px; padding: 10px; border-radius: 5px; border: 1px solid #30363d; background: rgba(255,255,255,0.1); color: #fff;">
+            <ul id="results-container"></ul>
+          </div>
+
+          <button id="dark-mode-toggle" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 15px;">
             🌓 Toggle Dark Mode
           </button>
         </header>
@@ -22,24 +37,50 @@
 
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+        
+        <nav class="breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em; color: #8b949e;">
+          <a href="/" style="color: #58a6ff; text-decoration: none;">Archives Home</a> 
+          {% assign crumbs = page.url | remove: '/index.html' | split: '/' %}
+          {% for crumb in crumbs offset: 1 %}
+            {% if forloop.last %}
+              / <strong>{{ page.title | default: crumb | replace: '-', ' ' | capitalize }}</strong>
+            {% else %}
+              / <a href="{% assign crumb_limit = forloop.index | inline_diff: 0 %}{% for i in (1..forloop.index) %}/{{ crumbs[i] }}{% endfor %}/" style="color: #58a6ff; text-decoration: none;">{{ crumb | replace: '-', ' ' | capitalize }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+        <hr style="border: 0; border-top: 1px solid #30363d; margin-bottom: 20px;">
+
         {{ content }}
       </section>
     </div>
 
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">THE ARCHIVES maintained by <strong>Prasheel Varma Datla</strong>.</p>
-        <p>A sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
+        <p class="copyright"><strong>THE ARCHIVES</strong> maintained by <strong>Prasheel Varma Datla</strong>.</p>
+        <p>A technical sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
       </footer>
     </div>
 
     <script>
+      /* Dark Mode Logic */
       const btn = document.getElementById("dark-mode-toggle");
       if (localStorage.getItem("theme") === "dark") { document.body.classList.add("dark-mode"); }
       btn.addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
         localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
       });
+    </script>
+    
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script>
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a> <br><span style="font-size: 0.8em; color: #8b949e;">Folder: {category}</span></li>',
+        noResultsText: '<li style="color: #8b949e;">No matching logs found...</li>'
+      })
     </script>
   </body>
 </html>
