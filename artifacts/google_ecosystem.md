@@ -1,3 +1,9 @@
+---
+layout: default
+title: The Hidden Google Ecosystem
+permalink: /artifacts/google_ecosystem/
+---
+
 # 🕵️ The Hidden Google Ecosystem
 **Category:** Productivity / Dev Tools
 **Status:** Documenting...

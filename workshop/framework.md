@@ -1,3 +1,9 @@
+---
+layout: default
+title: Flutter vs React Native
+permalink: /workshop/framework/
+---
+
 # Flutter vs React Native: What I Learned While Choosing a Mobile Framework
 
 When I first started exploring mobile app development, I thought the decision between **Flutter** and **React Native** was simple.
@@ -216,69 +222,5 @@ React Native focuses mainly on mobile.
 * enterprise & team environments
 * business dashboards & data apps
 * native platform feel
-
----
-
-## ❗ Myths vs Reality
-
-❌ React Native is slow
-✔ Reality: performance is good for most apps
-
-❌ Flutter can do things React Native cannot
-✔ Reality: both can access native APIs
-
-❌ Expo is required
-✔ Reality: CLI provides full power
-
-❌ Flutter replaces native development
-✔ Reality: both use native APIs underneath
-
----
-
-## 🧭 Flutter vs React Native in One Line
-
-Flutter = **rendering power & consistency**
-React Native = **ecosystem & integration power**
-
----
-
-## 🧠 My Personal Takeaway
-
-If I want:
-
-✔ system-level control
-✔ powerful background features
-✔ media & hardware integration
-✔ high-performance UI
-
-👉 Flutter feels smoother.
-
-If I want:
-
-✔ React ecosystem synergy
-✔ large team scalability
-✔ web + mobile logic sharing
-
-👉 React Native is a strong choice.
-
----
-
-## 📌 Final Truth
-
-Both frameworks are capable of building world-class apps.
-
-The real difference is:
-
-👉 **developer experience**
-👉 **ecosystem fit**
-👉 **project requirements**
-
-Not which one is “better.”
-
----
-
-### 📖 Part of: **The Archives**
-
-*A collection of concepts and lessons learned while building and exploring technology.*
 
 ---
