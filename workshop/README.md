@@ -7,4 +7,4 @@
 * *(New guides coming soon...)*
 
 ---
-[🔙 Back to The Archives](../README.md)
+[🔙 Back to The Archives](/)
