@@ -10,11 +10,11 @@ permalink: /infra/migration_to_os/
 > This is a technical log of transitioning from Windows to an Arch based Linux environment. It documents the backup protocols, the bootloader conflicts, and the realization of how deeply commercial operating systems hide the reality of our hardware.
 
 ## Contents
-1. The Operating System Reality Check
-2. The Backup Protocol
-3. The Bootloader Rebellion
-4. The Ventoy Bypass
-5. Establishing the Storage Architecture
+1. [The Operating System Reality Check](#1-the-operating-system-reality-check)
+2. [The Backup Protocol](#2-the-backup-protocol)
+3. [The Bootloader Rebellion](#3-the-bootloader-rebellion)
+4. [The Ventoy Bypass](#4-the-ventoy-bypass)
+5. [Establishing the Storage Architecture](#5-establishing-the-storage-architecture)
 
 <br>
 
