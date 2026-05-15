@@ -2,9 +2,14 @@
 ---
 @import "jekyll-theme-slate";
 
-// Widen the layout for a modern look
-.inner {
-  max-width: 1050px;
+// Keep all containers aligned to the same responsive width
+#header_wrap .inner,
+#main_content_wrap .inner,
+#footer_wrap .inner {
+  max-width: 96% !important;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 // Dark Mode Color Overrides
@@ -29,6 +34,10 @@ body.dark-mode #footer_wrap {
 
 body.dark-mode a {
   color: #58a6ff;
+}
+
+body.dark-mode .dir-folder-name {
+  color: #c9d1d9;
 }
 
 body.dark-mode code {
@@ -62,9 +71,16 @@ body.dark-mode h2 {
   grid-template-columns: 250px minmax(auto, 1100px) 250px;
   justify-content: space-between; /* This forces the sidebars to the far edges! */
   gap: 30px;
-  max-width: 98%; /* Stretches the entire grid across the browser window */
+  max-width: 96% !important; /* Keep alignment consistent with header/footer */
   padding: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.dir-folder-name {
+  color: #30363d;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
 }
 
 /* Sidebar Styling */
@@ -84,9 +100,9 @@ body.dark-mode h2 {
 
 /* --- FOCUS MODE STYLES --- */
 body.focus-mode #main_content_wrap .inner {
-  grid-template-columns: 0px 1fr 0px; /* Crushes the sidebars */
+  grid-template-columns: 0px 1fr 0px !important; /* Crushes the sidebars */
   gap: 0px;
-  max-width: 100%; /* Stretches the center content to full browser width like a PDF viewer */
+  max-width: 100% !important; /* Stretches the center content to full browser width like a PDF viewer */
   padding: 20px 4%; /* Keeps text just slightly off the physical edges of your monitor */
 }
 
@@ -100,13 +116,6 @@ body.focus-mode .sidebar {
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.2s;
-}
-
-/* --- HEADER & FOOTER ALIGNMENT FIX --- */
-#header_wrap .inner,
-#footer_wrap .inner {
-  max-width: 98%; /* Matches our new grid width */
-  transition: max-width 0.3s ease-in-out;
 }
 
 /* --- INDIVIDUAL SIDEBAR STATES --- */
@@ -131,7 +140,7 @@ body.hide-right #right-sidebar {
 /* --- FLOATING PANEL TOGGLES --- */
 .panel-toggle {
   position: fixed;
-  bottom: 35px;
+  top: 20px;
   background: #21262d;
   color: #c9d1d9;
   border: 1px solid #30363d;
@@ -153,8 +162,14 @@ body.hide-right #right-sidebar {
   border-color: #8b949e;
 }
 
-#toggle-left { left: 30px; }
-#toggle-right { right: 90px; } 
+#toggle-left { left: 20px; }
+#toggle-right { right: 20px; }
+
+body.focus-mode .panel-toggle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 /* Floating Toggle Button */
 #focus-toggle {
