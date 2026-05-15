@@ -1,16 +1,14 @@
 ---
 layout: default
 ---
-# 🧪 Workshop
+# 🔮 Artifacts
 
-> Technical how-to guides, environment setups, and solutions to the errors I encounter.
+> A collection of hidden digital gems, underrated tools, and secret ecosystem products.
 
-## Guides & Solutions
-
-* **[Mobile Framework Insights](/workshop/framework/)** - Choosing between Flutter and React Native for system-level control.
-* **[The Windows Debloat](/workshop/windows_debloat/)** - Advanced telemetry annihilation and dual boot survival.
-* **[The Linux Ecosystem](/workshop/linux_ecosystem/)** - The family tree of distros and the reality of package managers.
-* *(New guides coming soon...)*
+## The Collection
+* **[The Hidden Google Ecosystem](/artifacts/google_ecosystem/)** - Exploring Google's silent releases and secret tools.
+* **[The Creator and The Code](/artifacts/linus_torvalds/)** - The origin of Linux, Git, and the mindset of Linus Torvalds.
+* *(More artifacts coming soon...)*
 
 ---
 [🔙 Back to The Archives](/)
