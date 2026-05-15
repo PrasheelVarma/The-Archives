@@ -93,17 +93,6 @@ body.dark-mode h2 {
   top: 20px;
 }
 
-.sidebar-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.sidebar-header h3 {
-  flex: 1;
-}
-
 /* Center Content */
 .center-content {
   min-width: 0; /* Prevents code blocks from breaking the grid */
@@ -150,7 +139,8 @@ body.hide-right #right-sidebar {
 
 /* --- FLOATING PANEL TOGGLES --- */
 .panel-toggle {
-  position: static;
+  position: fixed;
+  top: 85px;
   background: #21262d;
   color: #c9d1d9;
   border: 1px solid #30363d;
@@ -158,12 +148,12 @@ body.hide-right #right-sidebar {
   width: 40px;
   height: 40px;
   cursor: pointer;
+  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  flex-shrink: 0;
 }
 
 .panel-toggle:hover {
@@ -172,9 +162,8 @@ body.hide-right #right-sidebar {
   border-color: #8b949e;
 }
 
-.sidebar-toggle {
-  margin-top: 0;
-}
+#toggle-left { left: 20px; }
+#toggle-right { right: 20px; }
 
 /* Floating Toggle Button */
 #focus-toggle {
