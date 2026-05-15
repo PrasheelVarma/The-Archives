@@ -42,7 +42,12 @@
       <section id="main_content" class="inner">
         
         <aside id="left-sidebar" class="sidebar">
-          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📂 Directory</h3>
+          <div class="sidebar-header">
+            <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📂 Directory</h3>
+            <button id="toggle-left" class="panel-toggle sidebar-toggle" title="Toggle Directory">
+              <span class="material-symbols-outlined" id="icon-left">left_panel_close</span>
+            </button>
+          </div>
           <ul style="list-style: none; padding-left: 0;">
             {% assign grouped_pages = site.pages | group_by_exp: "item", "item.url | split: '/' | slice: 1" %}
             {% for group in grouped_pages %}
@@ -87,7 +92,12 @@
         </main>
 
         <aside id="right-sidebar" class="sidebar">
-          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📑 On This Page</h3>
+          <div class="sidebar-header">
+            <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📑 On This Page</h3>
+            <button id="toggle-right" class="panel-toggle sidebar-toggle" title="Toggle On This Page">
+              <span class="material-symbols-outlined" id="icon-right">right_panel_close</span>
+            </button>
+          </div>
           <ul id="toc-list" style="list-style: none; padding-left: 0;"></ul>
         </aside>
 
@@ -100,14 +110,6 @@
         <p>A technical sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
       </footer>
     </div>
-
-    <button id="toggle-left" class="panel-toggle" title="Toggle Directory">
-      <span class="material-symbols-outlined" id="icon-left">left_panel_close</span>
-    </button>
-    
-    <button id="toggle-right" class="panel-toggle" title="Toggle On This Page">
-      <span class="material-symbols-outlined" id="icon-right">right_panel_close</span>
-    </button>
 
     <button id="focus-toggle" title="Toggle Focus Mode">
       <span class="material-symbols-outlined" id="focus-icon">open_in_full</span>
