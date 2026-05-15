@@ -50,3 +50,71 @@ body.dark-mode h1,
 body.dark-mode h2 {
   border-bottom-color: #30363d;
 }
+
+/* ==========================================================================
+   3-COLUMN LAYOUT & FOCUS MODE
+   ========================================================================== */
+
+/* The Main Container Grid */
+#main_content_wrap .inner {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px; /* Left Sidebar | Center | Right Sidebar */
+  gap: 30px;
+  max-width: 1400px; /* Widened to fit all 3 columns */
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  font-size: 0.9em;
+  color: #8b949e;
+  overflow-y: auto;
+  max-height: 80vh; /* Keeps sidebars from scrolling the whole page */
+  position: sticky;
+  top: 20px;
+}
+
+/* Center Content */
+.center-content {
+  min-width: 0; /* Prevents code blocks from breaking the grid */
+}
+
+/* --- FOCUS MODE STYLES --- */
+body.focus-mode #main_content_wrap .inner {
+  grid-template-columns: 0px 1fr 0px; /* Crushes the sidebars */
+  gap: 0px;
+  max-width: 900px; /* Brings it back to a readable blog width */
+}
+
+body.focus-mode .sidebar {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+/* Floating Toggle Button */
+#focus-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #238636;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#focus-toggle:hover {
+  transform: scale(1.1);
+  background: #2ea043;
+}

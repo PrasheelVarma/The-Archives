@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
     {% seo %}
     <style>
       /* Search Results Styling */
@@ -38,29 +41,45 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         
-        <nav class="breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em; color: #8b949e;">
-          <a href="/" style="color: #58a6ff; text-decoration: none;">Archives Home</a> 
-          {% assign crumbs = page.url | remove: '/index.html' | split: '/' %}
-          {% for crumb in crumbs offset: 1 %}
-            {% if forloop.last %}
-              / <strong>{{ page.title | default: crumb | replace: '-', ' ' | capitalize }}</strong>
-            {% else %}
-              / <a href="{% assign crumb_limit = forloop.index | inline_diff: 0 %}{% for i in (1..forloop.index) %}/{{ crumbs[i] }}{% endfor %}/" style="color: #58a6ff; text-decoration: none;">{{ crumb | replace: '-', ' ' | capitalize }}</a>
-            {% endif %}
-          {% endfor %}
-        </nav>
-        <hr style="border: 0; border-top: 1px solid #30363d; margin-bottom: 20px;">
+        <aside id="left-sidebar" class="sidebar">
+          <h3 style="margin-top: 0;">📂 Directory</h3>
+          <p><em>File tree script loading in next step...</em></p>
+        </aside>
 
-        {{ content }}
+        <main class="center-content">
+          <nav class="breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em; color: #8b949e;">
+            <a href="/" style="color: #58a6ff; text-decoration: none;">Archives Home</a> 
+            {% assign crumbs = page.url | remove: '/index.html' | split: '/' %}
+            {% for crumb in crumbs offset: 1 %}
+              {% if forloop.last %}
+                / <strong>{{ page.title | default: crumb | replace: '-', ' ' | capitalize }}</strong>
+              {% else %}
+                / <a href="{% assign crumb_limit = forloop.index | inline_diff: 0 %}{% for i in (1..forloop.index) %}/{{ crumbs[i] }}{% endfor %}/" style="color: #58a6ff; text-decoration: none;">{{ crumb | replace: '-', ' ' | capitalize }}</a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+          <hr style="border: 0; border-top: 1px solid #30363d; margin-bottom: 20px;">
+
+          {{ content }}
+        </main>
+
+        <aside id="right-sidebar" class="sidebar">
+          <h3 style="margin-top: 0;">📑 On This Page</h3>
+          <p><em>TOC script loading in next step...</em></p>
+        </aside>
+
       </section>
     </div>
-
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright"><strong>THE ARCHIVES</strong> maintained by <strong>Prasheel Varma Datla</strong>.</p>
         <p>A technical sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
       </footer>
     </div>
+
+    <button id="focus-toggle" title="Toggle Focus Mode">
+      <span class="material-symbols-outlined" id="focus-icon">open_in_full</span>
+    </button>
 
     <script>
       /* Dark Mode Logic */
@@ -69,6 +88,18 @@
       btn.addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
         localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+      });
+
+      /* Focus Mode Logic */
+      const focusBtn = document.getElementById("focus-toggle");
+      const focusIcon = document.getElementById("focus-icon");
+      focusBtn.addEventListener("click", function() {
+        document.body.classList.toggle("focus-mode");
+        if (document.body.classList.contains("focus-mode")) {
+          focusIcon.textContent = "close_fullscreen";
+        } else {
+          focusIcon.textContent = "open_in_full";
+        }
       });
     </script>
     
