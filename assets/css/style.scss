@@ -140,7 +140,7 @@ body.hide-right #right-sidebar {
 /* --- FLOATING PANEL TOGGLES --- */
 .panel-toggle {
   position: fixed;
-  top: 85px;
+  top: 20px;
   background: #21262d;
   color: #c9d1d9;
   border: 1px solid #30363d;
@@ -164,6 +164,12 @@ body.hide-right #right-sidebar {
 
 #toggle-left { left: 20px; }
 #toggle-right { right: 20px; }
+
+body.focus-mode .panel-toggle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
 /* Floating Toggle Button */
 #focus-toggle {
