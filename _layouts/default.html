@@ -187,7 +187,7 @@
         iconRight.textContent = isHidden ? 'right_panel_open' : 'right_panel_close';
       });
 
-      // Focus mode is independent of sidebar toggle state
+      // Focus Mode is independent of sidebar toggle state
       btnFocus.addEventListener('click', () => {
         const isFocused = body.classList.toggle('focus-mode');
         localStorage.setItem('focus-mode', isFocused);
