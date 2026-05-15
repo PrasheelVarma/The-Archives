@@ -52,8 +52,8 @@
                   <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
                     {% for page in group.items %}
                       {% if page.title %}
-                        {% assign page_url = page.url | downcase | split: '?' | first %}
-                        {% assign page_file_name = page_url | split: '/' | last %}
+                        {% assign page_url = page.url | split: '?' | first %}
+                        {% assign page_file_name = page_url | split: '/' | last | downcase %}
                         {% assign page_ext = page_url | split: '.' | last %}
                         {% unless page_file_name == 'search.json' or page_ext == 'xml' %}
                         <li style="margin-bottom: 5px; padding-left: 10px;">
