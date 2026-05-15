@@ -162,12 +162,13 @@
       const iconFocus = document.getElementById('focus-icon');
       const leftSidebarHeading = document.querySelector('#left-sidebar h3');
       const rightSidebarHeading = document.querySelector('#right-sidebar h3');
+      const MIN_TOGGLE_TOP_OFFSET = 20;
 
       const positionSidebarToggles = () => {
         const centerToggleOnHeading = (button, heading) => {
           if (!button || !heading) return;
           const headingRect = heading.getBoundingClientRect();
-          const topPosition = Math.max(20, headingRect.top + ((headingRect.height - button.offsetHeight) / 2));
+          const topPosition = Math.max(MIN_TOGGLE_TOP_OFFSET, headingRect.top + ((headingRect.height - button.offsetHeight) / 2));
           button.style.top = `${topPosition}px`;
         };
         centerToggleOnHeading(btnLeft, leftSidebarHeading);

@@ -100,7 +100,7 @@ body.dark-mode h2 {
 
 /* --- FOCUS MODE STYLES --- */
 body.focus-mode #main_content_wrap .inner {
-  grid-template-columns: 0 1fr 0 !important; /* Crushes the sidebars */
+  grid-template-columns: 0px 1fr 0px !important; /* Crushes the sidebars */
   gap: 0px;
   max-width: 100% !important; /* Stretches the center content to full browser width like a PDF viewer */
   padding: 20px 4%; /* Keeps text just slightly off the physical edges of your monitor */
