@@ -35,3 +35,18 @@ body.dark-mode code {
   background-color: #161b22;
   color: #ff79c6;
 }
+// Force headings to be readable in dark mode
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f0f6fc; 
+}
+
+// Fix the subtle horizontal lines under h1 and h2
+body.dark-mode h1,
+body.dark-mode h2 {
+  border-bottom-color: #30363d;
+}
