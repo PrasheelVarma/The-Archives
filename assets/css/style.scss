@@ -102,6 +102,60 @@ body.focus-mode .sidebar {
   transition: opacity 0.2s;
 }
 
+/* --- HEADER & FOOTER ALIGNMENT FIX --- */
+#header_wrap .inner,
+#footer_wrap .inner {
+  max-width: 98%; /* Matches our new grid width */
+  transition: max-width 0.3s ease-in-out;
+}
+
+/* --- INDIVIDUAL SIDEBAR STATES --- */
+body.hide-left #main_content_wrap .inner {
+  grid-template-columns: 0px minmax(auto, 1100px) 250px;
+}
+body.hide-right #main_content_wrap .inner {
+  grid-template-columns: 250px minmax(auto, 1100px) 0px;
+}
+body.hide-left.hide-right #main_content_wrap .inner {
+  grid-template-columns: 0px minmax(auto, 1100px) 0px;
+}
+
+body.hide-left #left-sidebar,
+body.hide-right #right-sidebar {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+/* --- FLOATING PANEL TOGGLES --- */
+.panel-toggle {
+  position: fixed;
+  bottom: 35px;
+  background: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.panel-toggle:hover {
+  background: #30363d;
+  color: #58a6ff;
+  border-color: #8b949e;
+}
+
+#toggle-left { left: 30px; }
+#toggle-right { right: 90px; } 
+
 /* Floating Toggle Button */
 #focus-toggle {
   position: fixed;

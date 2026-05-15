@@ -42,8 +42,26 @@
       <section id="main_content" class="inner">
         
         <aside id="left-sidebar" class="sidebar">
-          <h3 style="margin-top: 0;">📂 Directory</h3>
-          <p><em>File tree script loading in next step...</em></p>
+          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📂 Directory</h3>
+          <ul style="list-style: none; padding-left: 0;">
+            {% assign grouped_pages = site.pages | group_by_exp: "item", "item.url | split: '/' | slice: 1" %}
+            {% for group in grouped_pages %}
+              {% if group.name != "" and group.name != "assets" %}
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">{{ group.name }}</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    {% for page in group.items %}
+                      {% if page.title %}
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="{{ page.url }}" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">{{ page.title }}</a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </aside>
 
         <main class="center-content">
@@ -64,12 +82,13 @@
         </main>
 
         <aside id="right-sidebar" class="sidebar">
-          <h3 style="margin-top: 0;">📑 On This Page</h3>
-          <p><em>TOC script loading in next step...</em></p>
+          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📑 On This Page</h3>
+          <ul id="toc-list" style="list-style: none; padding-left: 0;"></ul>
         </aside>
 
       </section>
     </div>
+
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright"><strong>THE ARCHIVES</strong> maintained by <strong>Prasheel Varma Datla</strong>.</p>
@@ -77,30 +96,116 @@
       </footer>
     </div>
 
+    <button id="toggle-left" class="panel-toggle" title="Toggle Directory">
+      <span class="material-symbols-outlined" id="icon-left">left_panel_close</span>
+    </button>
+    
+    <button id="toggle-right" class="panel-toggle" title="Toggle On This Page">
+      <span class="material-symbols-outlined" id="icon-right">right_panel_close</span>
+    </button>
+
     <button id="focus-toggle" title="Toggle Focus Mode">
       <span class="material-symbols-outlined" id="focus-icon">open_in_full</span>
     </button>
 
     <script>
-      /* Dark Mode Logic */
-      const btn = document.getElementById("dark-mode-toggle");
+      /* --- AUTO-GENERATE TABLE OF CONTENTS --- */
+      document.addEventListener("DOMContentLoaded", function() {
+        const tocList = document.getElementById('toc-list');
+        const headers = document.querySelectorAll('.center-content h2, .center-content h3');
+        
+        if(headers.length === 0) {
+          tocList.innerHTML = '<li style="color: #8b949e; font-size: 0.9em;">No headings found.</li>';
+          return;
+        }
+        
+        headers.forEach(header => {
+          if (!header.id) {
+            header.id = header.innerText.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          }
+          const li = document.createElement('li');
+          li.style.marginBottom = '10px';
+          li.style.marginLeft = header.tagName === 'H3' ? '15px' : '0px';
+          
+          const a = document.createElement('a');
+          a.href = '#' + header.id;
+          a.textContent = header.innerText;
+          a.style.color = '#58a6ff';
+          a.style.textDecoration = 'none';
+          a.style.fontSize = header.tagName === 'H3' ? '0.85em' : '0.95em';
+          
+          li.appendChild(a);
+          tocList.appendChild(li);
+        });
+      });
+
+      /* --- DARK MODE LOGIC --- */
+      const btnTheme = document.getElementById("dark-mode-toggle");
       if (localStorage.getItem("theme") === "dark") { document.body.classList.add("dark-mode"); }
-      btn.addEventListener("click", function() {
+      btnTheme.addEventListener("click", function() {
         document.body.classList.toggle("dark-mode");
         localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
       });
 
-      /* Focus Mode Logic */
-      const focusBtn = document.getElementById("focus-toggle");
-      const focusIcon = document.getElementById("focus-icon");
-      focusBtn.addEventListener("click", function() {
-        document.body.classList.toggle("focus-mode");
-        if (document.body.classList.contains("focus-mode")) {
-          focusIcon.textContent = "close_fullscreen";
-        } else {
-          focusIcon.textContent = "open_in_full";
+      /* --- GLOBAL LAYOUT STATE MANAGEMENT --- */
+      const body = document.body;
+      const btnLeft = document.getElementById('toggle-left');
+      const iconLeft = document.getElementById('icon-left');
+      const btnRight = document.getElementById('toggle-right');
+      const iconRight = document.getElementById('icon-right');
+      const btnFocus = document.getElementById('focus-toggle');
+      const iconFocus = document.getElementById('focus-icon');
+
+      // 1. Load Saved Layout State on Page Load
+      if (localStorage.getItem('hide-left') === 'true') { 
+        body.classList.add('hide-left'); iconLeft.textContent = 'left_panel_open'; 
+      }
+      if (localStorage.getItem('hide-right') === 'true') { 
+        body.classList.add('hide-right'); iconRight.textContent = 'right_panel_open'; 
+      }
+      if (localStorage.getItem('focus-mode') === 'true') { 
+        body.classList.add('focus-mode'); iconFocus.textContent = 'close_fullscreen'; 
+      }
+
+      // 2. Button Click Events
+      btnLeft.addEventListener('click', () => {
+        const isHidden = body.classList.toggle('hide-left');
+        localStorage.setItem('hide-left', isHidden);
+        iconLeft.textContent = isHidden ? 'left_panel_open' : 'left_panel_close';
+        syncFocusState();
+      });
+
+      btnRight.addEventListener('click', () => {
+        const isHidden = body.classList.toggle('hide-right');
+        localStorage.setItem('hide-right', isHidden);
+        iconRight.textContent = isHidden ? 'right_panel_open' : 'right_panel_close';
+        syncFocusState();
+      });
+
+      // Master Focus Mode Override
+      btnFocus.addEventListener('click', () => {
+        const isFocused = body.classList.toggle('focus-mode');
+        localStorage.setItem('focus-mode', isFocused);
+        iconFocus.textContent = isFocused ? 'close_fullscreen' : 'open_in_full';
+
+        // If focus mode turns ON, automatically hide both sidebars
+        if (isFocused) {
+          body.classList.add('hide-left', 'hide-right');
+          localStorage.setItem('hide-left', 'true');
+          localStorage.setItem('hide-right', 'true');
+          iconLeft.textContent = 'left_panel_open';
+          iconRight.textContent = 'right_panel_open';
         }
       });
+
+      // 3. Sync Logic: If a user manually opens a sidebar, turn off Focus Mode
+      function syncFocusState() {
+        if (!body.classList.contains('hide-left') || !body.classList.contains('hide-right')) {
+            body.classList.remove('focus-mode');
+            localStorage.setItem('focus-mode', 'false');
+            iconFocus.textContent = 'open_in_full';
+        }
+      }
     </script>
     
     <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
