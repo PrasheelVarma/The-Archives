@@ -58,9 +58,11 @@ body.dark-mode h2 {
 /* The Main Container Grid */
 #main_content_wrap .inner {
   display: grid;
-  grid-template-columns: 250px 1fr 250px; /* Left Sidebar | Center | Right Sidebar */
+  /* Left Sidebar | Center (Flexible) | Right Sidebar */
+  grid-template-columns: 250px minmax(auto, 1100px) 250px;
+  justify-content: space-between; /* This forces the sidebars to the far edges! */
   gap: 30px;
-  max-width: 1400px; /* Widened to fit all 3 columns */
+  max-width: 98%; /* Stretches the entire grid across the browser window */
   padding: 20px;
   transition: all 0.3s ease-in-out;
 }
@@ -84,7 +86,13 @@ body.dark-mode h2 {
 body.focus-mode #main_content_wrap .inner {
   grid-template-columns: 0px 1fr 0px; /* Crushes the sidebars */
   gap: 0px;
-  max-width: 900px; /* Brings it back to a readable blog width */
+  max-width: 100%; /* Stretches the center content to full browser width like a PDF viewer */
+  padding: 20px 4%; /* Keeps text just slightly off the physical edges of your monitor */
+}
+
+body.focus-mode .center-content {
+  font-size: 1.08em; /* Gives that slight "Zoom In" effect automatically */
+  transition: font-size 0.3s ease;
 }
 
 body.focus-mode .sidebar {
