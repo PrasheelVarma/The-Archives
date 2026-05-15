@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>The OS Migration | THE ARCHIVES</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="The OS Migration" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Documenting the process of development, hardware exploration, and technical troubleshooting. A permanent record of the logic behind the magic." />
+<meta name="twitter:description" property="og:description" content="Documenting the process of development, hardware exploration, and technical troubleshooting. A permanent record of the logic behind the magic." />
+<link rel="canonical" href="https://archives.prasheelvarma.dev/infra/migration_to_os/" />
+<meta property="og:url" content="https://archives.prasheelvarma.dev/infra/migration_to_os/" />
+<meta property="og:site_name" content="THE ARCHIVES" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="The OS Migration" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Documenting the process of development, hardware exploration, and technical troubleshooting. A permanent record of the logic behind the magic.","headline":"The OS Migration","url":"https://archives.prasheelvarma.dev/infra/migration_to_os/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style>
+      /* Search Results Styling */
+      #results-container {
+        list-style: none; padding: 0; margin-top: 5px; 
+        background: #161b22; border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5); position: absolute; width: 100%; max-width: 400px; z-index: 1000;
+      }
+      #results-container li { padding: 10px; border-bottom: 1px solid #30363d; }
+      #results-container li a { color: #58a6ff; text-decoration: none; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/PrasheelVarma">View GitHub Profile</a>
+          <h1 id="project_title">THE ARCHIVES</h1>
+          <h2 id="project_tagline">Documenting the process of development, hardware exploration, and technical troubleshooting. A permanent record of the logic behind the magic.</h2>
+          
+          <div id="search-container" style="margin-top: 15px; position: relative;">
+            <input type="text" id="search-input" placeholder="🔍 Search the archives..." style="width: 100%; max-width: 400px; padding: 10px; border-radius: 5px; border: 1px solid #30363d; background: rgba(255,255,255,0.1); color: #fff;">
+            <ul id="results-container"></ul>
+          </div>
+
+          <button id="dark-mode-toggle" style="background: rgba(255,255,255,0.2); border: 1px solid #fff; color: #fff; cursor: pointer; padding: 5px 10px; border-radius: 5px; margin-top: 15px;">
+            🌓 Toggle Dark Mode
+          </button>
+        </header>
+    </div>
+
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        
+        <aside id="left-sidebar" class="sidebar">
+          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📂 Directory</h3>
+          <ul style="list-style: none; padding-left: 0;">
+            
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">workshop</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/workshop/framework/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">Flutter vs React Native</a>
+                        </li>
+                      
+                    
+                      
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/workshop/linux_ecosystem/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">The Linux Ecosystem</a>
+                        </li>
+                      
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/workshop/windows_debloat/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">The Windows Debloat</a>
+                        </li>
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">artifacts</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/artifacts/google_ecosystem/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">The Hidden Google Ecosystem</a>
+                        </li>
+                      
+                    
+                      
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/artifacts/linus_torvalds/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">The Creator and The Code</a>
+                        </li>
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">chronicles</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">gallery</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">forge</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">infra</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                      
+                        <li style="margin-bottom: 5px; padding-left: 10px;">
+                          <a href="/infra/migration_to_os/" style="color: #58a6ff; text-decoration: none; font-size: 0.95em;">The OS Migration</a>
+                        </li>
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;"></strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">search.json</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+              
+                <li style="margin-bottom: 15px;">
+                  <strong style="color: #c9d1d9; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">assets</strong>
+                  <ul style="list-style: none; padding-left: 10px; margin-top: 5px; border-left: 1px solid #30363d;">
+                    
+                      
+                    
+                  </ul>
+                </li>
+              
+            
+          </ul>
+        </aside>
+
+        <main class="center-content">
+          <nav class="breadcrumbs" style="margin-bottom: 20px; font-size: 0.9em; color: #8b949e;">
+            <a href="/" style="color: #58a6ff; text-decoration: none;">Archives Home</a> 
+            
+            
+              
+                / <a href="/infra/" style="color: #58a6ff; text-decoration: none;">Infra</a>
+              
+            
+              
+                / <strong>The os migration</strong>
+              
+            
+          </nav>
+          <hr style="border: 0; border-top: 1px solid #30363d; margin-bottom: 20px;">
+
+          <h1 id="️-the-os-migration-a-side-experimentation-that-revealed-some-truths">☁️ The OS Migration: A Side Experimentation That Revealed Some Truths</h1>
+
+<blockquote>
+  <p>“The hardware is never a problem; it is about what OS you are.”
+This is a technical log of transitioning from Windows to an Arch based Linux environment. It documents the backup protocols, the bootloader conflicts, and the realization of how deeply commercial operating systems hide the reality of our hardware.</p>
+</blockquote>
+
+<h2 id="contents">Contents</h2>
+<ol>
+  <li><a href="#1-the-operating-system-reality-check">The Operating System Reality Check</a></li>
+  <li><a href="#2-the-backup-protocol">The Backup Protocol</a></li>
+  <li><a href="#3-the-bootloader-rebellion">The Bootloader Rebellion</a></li>
+  <li><a href="#4-the-ventoy-bypass">The Ventoy Bypass</a></li>
+  <li><a href="#5-establishing-the-storage-architecture">Establishing the Storage Architecture</a></li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="1-the-operating-system-reality-check">1. The Operating System Reality Check</h2>
+<p>For a long time, when the system felt heavy or a process lagged, the immediate assumption was that the hardware had reached its limit. My Lenovo V15 ADA laptop with an AMD Athlon Silver 3050U processor and 12GB of RAM felt like a bottleneck under Windows 11.</p>
+
+<p>The initial plan was simply to install a Linux distribution alongside Windows as a side experiment to see if resource usage could be optimized. But booting into an Arch based system (EndeavourOS) felt like stepping out of a simulation.</p>
+
+<p>Commercial OSes like Windows and macOS are designed to hide the underlying machinery from the user. They manage processes behind closed visual interfaces so the user does not have to think. Linux does the exact opposite. It exposes the reality of how resource allocation, window managers, and compositors actually function. It forces you to experiment, break things, and ultimately understand the machine.</p>
+
+<p>This side experiment quickly revealed a core truth. The hardware was never the problem. The heavy Windows OS was.</p>
+
+<h2 id="2-the-backup-protocol">2. The Backup Protocol</h2>
+<p>Before I could even think about installing Linux, I needed to back up all my important data from Windows. Standard drag and drop to Google Drive is notoriously unreliable for massive file transfers, requiring a more robust tool called Rclone.</p>
+
+<p>Rclone acts as a command line interface for cloud storage. Running the transfer through the terminal removed the guesswork of visual loading bars. The CLI provided real time metrics:</p>
+<ul>
+  <li>Live transfer speeds</li>
+  <li>Exact number of files transferred versus pending</li>
+  <li>The status of concurrent active streams</li>
+</ul>
+
+<p>This ensured no hidden files or project folders were dropped during the migration, providing a clean state to begin wiping partitions.</p>
+
+<h2 id="3-the-bootloader-rebellion">3. The Bootloader Rebellion</h2>
+<p>Once the data was safe in the cloud, the goal was a standard Windows “Reset this PC” to clear out bloatware before officially setting up the dual boot. However, the system refused to reset.</p>
+
+<p>The Blocker: A previous Linux installation had already tinkered with the drive. Because Linux had taken over the UEFI and written its own GRUB bootloader, the built in Windows Recovery Environment was essentially hijacked.</p>
+
+<p>Windows could not verify its own boot path. Every attempt to trigger the internal reset tool failed entirely. The OS was trapped in its own corrupted state, proving how fragile closed recovery systems can be when forced to interact with outside bootloaders.</p>
+
+<h2 id="4-the-ventoy-bypass">4. The Ventoy Bypass</h2>
+<p>To bypass the broken recovery environment, the installation had to be approached from outside the OS. The solution was Ventoy.</p>
+
+<p>Instead of repeatedly formatting USB drives with Rufus every time a new OS was tested, Ventoy allows formatting the USB once and simply dragging and dropping ISO files onto it.</p>
+<ul>
+  <li>The Ventoy USB was loaded with a fresh Windows 11 ISO.</li>
+  <li>The system booted directly into the USB, completely bypassing the corrupted GRUB bootloader loop on the hard drive.</li>
+  <li>A completely fresh Windows install was executed directly over the old partition.</li>
+</ul>
+
+<p>This wiped the corrupted bootloader and established a clean and stable base.</p>
+
+<h2 id="5-establishing-the-storage-architecture">5. Establishing the Storage Architecture</h2>
+<p>With the foundation fixed and Windows freshly installed, EndeavourOS was finally installed alongside it. Inside Linux, strict partition rules were established to govern the machine moving forward.</p>
+
+<p>To maintain system speed and prevent the OS from slowing down over time, the storage is heavily segmented:</p>
+<ul>
+  <li>The Main OS Partition (80GB): Strictly reserved for the EndeavourOS root system, critical libraries, and a dedicated 16GB Swap file (Virtual RAM) to handle intensive computing workloads.</li>
+  <li>The Secondary Partition: All heavy data is routed to a separate drive. This includes project repositories, Python environments, and large game installations.</li>
+</ul>
+
+<p>By keeping the root partition small and lean (80GB), the Linux system is forced to remain efficient, while the secondary partition handles the heavy lifting. The side experiment had officially become the core infrastructure.</p>
+
+        </main>
+
+        <aside id="right-sidebar" class="sidebar">
+          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📑 On This Page</h3>
+          <ul id="toc-list" style="list-style: none; padding-left: 0;"></ul>
+        </aside>
+
+      </section>
+    </div>
+
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright"><strong>THE ARCHIVES</strong> maintained by <strong>Prasheel Varma Datla</strong>.</p>
+        <p>A technical sub-domain of <a href="https://prasheelvarma.dev">prasheelvarma.dev</a></p>
+      </footer>
+    </div>
+
+    <button id="toggle-left" class="panel-toggle" title="Toggle Directory">
+      <span class="material-symbols-outlined" id="icon-left">left_panel_close</span>
+    </button>
+    
+    <button id="toggle-right" class="panel-toggle" title="Toggle On This Page">
+      <span class="material-symbols-outlined" id="icon-right">right_panel_close</span>
+    </button>
+
+    <button id="focus-toggle" title="Toggle Focus Mode">
+      <span class="material-symbols-outlined" id="focus-icon">open_in_full</span>
+    </button>
+
+    <script>
+      /* --- AUTO-GENERATE TABLE OF CONTENTS --- */
+      document.addEventListener("DOMContentLoaded", function() {
+        const tocList = document.getElementById('toc-list');
+        const headers = document.querySelectorAll('.center-content h2, .center-content h3');
+        
+        if(headers.length === 0) {
+          tocList.innerHTML = '<li style="color: #8b949e; font-size: 0.9em;">No headings found.</li>';
+          return;
+        }
+        
+        headers.forEach(header => {
+          if (!header.id) {
+            header.id = header.innerText.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          }
+          const li = document.createElement('li');
+          li.style.marginBottom = '10px';
+          li.style.marginLeft = header.tagName === 'H3' ? '15px' : '0px';
+          
+          const a = document.createElement('a');
+          a.href = '#' + header.id;
+          a.textContent = header.innerText;
+          a.style.color = '#58a6ff';
+          a.style.textDecoration = 'none';
+          a.style.fontSize = header.tagName === 'H3' ? '0.85em' : '0.95em';
+          
+          li.appendChild(a);
+          tocList.appendChild(li);
+        });
+      });
+
+      /* --- DARK MODE LOGIC --- */
+      const btnTheme = document.getElementById("dark-mode-toggle");
+      if (localStorage.getItem("theme") === "dark") { document.body.classList.add("dark-mode"); }
+      btnTheme.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+      });
+
+      /* --- GLOBAL LAYOUT STATE MANAGEMENT --- */
+      const body = document.body;
+      const btnLeft = document.getElementById('toggle-left');
+      const iconLeft = document.getElementById('icon-left');
+      const btnRight = document.getElementById('toggle-right');
+      const iconRight = document.getElementById('icon-right');
+      const btnFocus = document.getElementById('focus-toggle');
+      const iconFocus = document.getElementById('focus-icon');
+
+      // 1. Load Saved Layout State on Page Load
+      if (localStorage.getItem('hide-left') === 'true') { 
+        body.classList.add('hide-left'); iconLeft.textContent = 'left_panel_open'; 
+      }
+      if (localStorage.getItem('hide-right') === 'true') { 
+        body.classList.add('hide-right'); iconRight.textContent = 'right_panel_open'; 
+      }
+      if (localStorage.getItem('focus-mode') === 'true') { 
+        body.classList.add('focus-mode'); iconFocus.textContent = 'close_fullscreen'; 
+      }
+
+      // 2. Button Click Events
+      btnLeft.addEventListener('click', () => {
+        const isHidden = body.classList.toggle('hide-left');
+        localStorage.setItem('hide-left', isHidden);
+        iconLeft.textContent = isHidden ? 'left_panel_open' : 'left_panel_close';
+        syncFocusState();
+      });
+
+      btnRight.addEventListener('click', () => {
+        const isHidden = body.classList.toggle('hide-right');
+        localStorage.setItem('hide-right', isHidden);
+        iconRight.textContent = isHidden ? 'right_panel_open' : 'right_panel_close';
+        syncFocusState();
+      });
+
+      // Master Focus Mode Override
+      btnFocus.addEventListener('click', () => {
+        const isFocused = body.classList.toggle('focus-mode');
+        localStorage.setItem('focus-mode', isFocused);
+        iconFocus.textContent = isFocused ? 'close_fullscreen' : 'open_in_full';
+
+        // If focus mode turns ON, automatically hide both sidebars
+        if (isFocused) {
+          body.classList.add('hide-left', 'hide-right');
+          localStorage.setItem('hide-left', 'true');
+          localStorage.setItem('hide-right', 'true');
+          iconLeft.textContent = 'left_panel_open';
+          iconRight.textContent = 'right_panel_open';
+        }
+      });
+
+      // 3. Sync Logic: If a user manually opens a sidebar, turn off Focus Mode
+      function syncFocusState() {
+        if (!body.classList.contains('hide-left') || !body.classList.contains('hide-right')) {
+            body.classList.remove('focus-mode');
+            localStorage.setItem('focus-mode', 'false');
+            iconFocus.textContent = 'open_in_full';
+        }
+      }
+    </script>
+    
+    <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+    <script>
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}">{title}</a> <br><span style="font-size: 0.8em; color: #8b949e;">Folder: {category}</span></li>',
+        noResultsText: '<li style="color: #8b949e;">No matching logs found...</li>'
+      })
+    </script>
+  </body>
+</html>

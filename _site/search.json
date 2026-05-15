@@ -1,0 +1,82 @@
+[
+  
+  
+    
+      
+      {
+        "title"    : "Flutter vs React Native",
+        "url"      : "/workshop/framework/",
+        "category" : "workshop"
+      }
+      
+    
+  
+    
+      ,
+      {
+        "title"    : "The Hidden Google Ecosystem",
+        "url"      : "/artifacts/google_ecosystem/",
+        "category" : "artifacts"
+      }
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      ,
+      {
+        "title"    : "The Creator and The Code",
+        "url"      : "/artifacts/linus_torvalds/",
+        "category" : "artifacts"
+      }
+      
+    
+  
+    
+      ,
+      {
+        "title"    : "The Linux Ecosystem",
+        "url"      : "/workshop/linux_ecosystem/",
+        "category" : "workshop"
+      }
+      
+    
+  
+    
+      ,
+      {
+        "title"    : "The OS Migration",
+        "url"      : "/infra/migration_to_os/",
+        "category" : "infra"
+      }
+      
+    
+  
+    
+  
+    
+  
+    
+      ,
+      {
+        "title"    : "The Windows Debloat",
+        "url"      : "/workshop/windows_debloat/",
+        "category" : "workshop"
+      }
+      
+    
+  
+]
