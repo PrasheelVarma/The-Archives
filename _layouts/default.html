@@ -42,7 +42,7 @@
       <section id="main_content" class="inner">
         
         <aside id="left-sidebar" class="sidebar">
-          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px;">📂 Directory</h3>
+          <h3 style="margin-top: 0; border-bottom: 1px solid #30363d; padding-bottom: 10px; padding-left: 50px;">📂 Directory</h3>
           <ul style="list-style: none; padding-left: 0;">
             {% assign grouped_pages = site.pages | group_by_exp: "item", "item.url | split: '/' | slice: 1" %}
             {% for group in grouped_pages %}
