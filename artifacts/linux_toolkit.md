@@ -53,8 +53,7 @@ Instead of using heavy Google Drive desktop clients that consume RAM in the back
 For laptops running processors like the AMD Athlon, battery life and thermal throttling are massive issues on Linux. Standard tools like `TLP` are passive. **auto-cpufreq** actively monitors the CPU load and dynamically scales the CPU frequency and turbo boost.
 
 <div style="text-align: center; margin: 20px 0;">
-  <!-- Inbuilt YouTube Video Player -->
-  <iframe width="100%" height="400" src="[https://www.youtube.com/embed/QkGngzO5Nhk](https://www.youtube.com/embed/QkGngzO5Nhk)" title="Auto-CPUFreq Explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px; border: 1px solid #30363d;"></iframe>
+  <iframe width="100%" height="400" src="https://www.youtube.com/embed/QkGngzO5Nhk" title="Auto-CPUFreq Explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 10px; border: 1px solid #30363d;"></iframe>
   <p style="font-size: 0.8em; color: #8b949e;"><i>A visual breakdown of how auto-cpufreq scales CPU governors dynamically.</i></p>
 </div>
 
