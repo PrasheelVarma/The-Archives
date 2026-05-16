@@ -2,9 +2,14 @@
 ---
 @import "jekyll-theme-slate";
 
-// Widen the layout for a modern look
-.inner {
-  max-width: 1050px;
+// Keep all containers aligned to the same responsive width
+#header_wrap .inner,
+#main_content_wrap .inner,
+#footer_wrap .inner {
+  max-width: 96% !important;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 // Dark Mode Color Overrides
@@ -31,6 +36,10 @@ body.dark-mode a {
   color: #58a6ff;
 }
 
+body.dark-mode .dir-folder-name {
+  color: #c9d1d9;
+}
+
 body.dark-mode code {
   background-color: #161b22;
   color: #ff79c6;
@@ -49,4 +58,140 @@ body.dark-mode h6 {
 body.dark-mode h1,
 body.dark-mode h2 {
   border-bottom-color: #30363d;
+}
+
+/* ==========================================================================
+   3-COLUMN LAYOUT & FOCUS MODE
+   ========================================================================== */
+
+/* The Main Container Grid */
+#main_content_wrap .inner {
+  display: grid;
+  /* Left Sidebar | Center (Flexible) | Right Sidebar */
+  grid-template-columns: 250px minmax(auto, 1100px) 250px;
+  justify-content: space-between; /* This forces the sidebars to the far edges! */
+  gap: 30px;
+  max-width: 96% !important; /* Keep alignment consistent with header/footer */
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.dir-folder-name {
+  color: #30363d;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 1px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  font-size: 0.9em;
+  color: #8b949e;
+  overflow-y: auto;
+  max-height: 80vh; /* Keeps sidebars from scrolling the whole page */
+  position: sticky;
+  top: 20px;
+}
+
+/* Center Content */
+.center-content {
+  min-width: 0; /* Prevents code blocks from breaking the grid */
+}
+
+/* --- FOCUS MODE STYLES --- */
+body.focus-mode #main_content_wrap .inner {
+  grid-template-columns: 0px 1fr 0px !important; /* Crushes the sidebars */
+  gap: 0px;
+  max-width: 100% !important; /* Stretches the center content to full browser width like a PDF viewer */
+  padding: 20px 4%; /* Keeps text just slightly off the physical edges of your monitor */
+}
+
+body.focus-mode .center-content {
+  font-size: 1.08em; /* Gives that slight "Zoom In" effect automatically */
+  transition: font-size 0.3s ease;
+}
+
+body.focus-mode .sidebar {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+/* --- INDIVIDUAL SIDEBAR STATES --- */
+body.hide-left #main_content_wrap .inner {
+  grid-template-columns: 0px minmax(auto, 1100px) 250px;
+}
+body.hide-right #main_content_wrap .inner {
+  grid-template-columns: 250px minmax(auto, 1100px) 0px;
+}
+body.hide-left.hide-right #main_content_wrap .inner {
+  grid-template-columns: 0px minmax(auto, 1100px) 0px;
+}
+
+body.hide-left #left-sidebar,
+body.hide-right #right-sidebar {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+
+/* --- FLOATING PANEL TOGGLES --- */
+.panel-toggle {
+  position: fixed;
+  top: 20px;
+  background: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.panel-toggle:hover {
+  background: #30363d;
+  color: #58a6ff;
+  border-color: #8b949e;
+}
+
+#toggle-left { left: 20px; }
+#toggle-right { right: 20px; }
+
+body.focus-mode .panel-toggle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Floating Toggle Button */
+#focus-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #238636;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+#focus-toggle:hover {
+  transform: scale(1.1);
+  background: #2ea043;
 }
